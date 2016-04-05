@@ -17,8 +17,7 @@ aaku
 
 ### Notes
 
-- [Dotfiles Are Meant to Be Forked](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
-- A note to myself: A Good Carpenter Doesn't Blame His Tools.
+- A note to myself: [A Good Carpenter Doesn't Blame His Tools](http://aasare.github.io/blog/development/programmer-tools-dotfiles).
 
 ### License
 
