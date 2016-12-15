@@ -17,8 +17,8 @@ aaku
 
 ### Notes
 
-- A note to myself: [A Good Carpenter Doesn't Blame His Tools](http://aasare.github.io/blog/development/programmer-tools-dotfiles).
+- A note to myself: [A Good Carpenter Doesn't Blame His Tools]https://aaooki.github.io/blog/the-dotfiles).
 
 ### License
 
-See [LICENSE](https://github.com/aasare/aaku/blob/master/LICENSE).
+See [LICENSE](https://github.com/aaooki/aaku/blob/master/LICENSE).
