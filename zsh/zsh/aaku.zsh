@@ -3,21 +3,22 @@ autoload -U promptinit && promptinit
 autoload -U colors && colors
 
 setopt prompt_subst
-setopt correctall
+setopt correct
 setopt extendedglob
+unsetopt nomatch
 setopt glob_dots
 unsetopt beep
 setopt autocd
 
 # Autocompletion
 autoload -U compinit && compinit
-setopt completealiases
-setopt menu_complete
+zmodload zsh/complist
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # History
-export HISTSIZE=1007
+export HISTSIZE=25000
 export SAVEHIST=$HISTSIZE
 export HISTFILE="$HOME/.zsh_history"
 setopt hist_ignore_all_dups 	# Ignore duplicate commands
@@ -29,8 +30,8 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-[[ -n "${key[Up]}"   ]]  && bindkey "${key[Up]}"   up-line-or-beginning-search
-[[ -n "${key[Down]}" ]]  && bindkey "${key[Down]}" down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 # Vim Mode
 bindkey -v
