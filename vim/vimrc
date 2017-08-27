@@ -11,7 +11,7 @@ call vundle#begin()
     Plugin 'rking/ag.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'myusuf3/numbers.vim'
+    Plugin 'jeffkreeftmeijer/vim-numbertoggle'
     Plugin 'tpope/vim-fugitive'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'tomtom/tcomment_vim'
@@ -27,10 +27,12 @@ call vundle#begin()
 
 " General Settings
 set encoding=utf-8
+set lazyredraw
 set ttimeout
 set ttimeoutlen=50
 set number
 set nowrap                      "disable soft wrap for lines
+set autoread                    "automatically read changes in the file
 set showcmd                     "display incomplete commands
 set noshowmode                  "disable the label for the current mode
 set hidden                      "hide buffers instead of closing them
@@ -92,12 +94,9 @@ endif
 
 " Key Maps
 "leader key
-let mapleader = ","
+let mapleader="\<Space>"
 
-"map C-n to ,c
-inoremap <leader>c <C-n>
-
-"easy window navigation and splits
+"easy window navigation and splits using ctrl+(h, j, k, l)
 map <silent> <C-h> :call WinMove('h')<cr>
 map <silent> <C-j> :call WinMove('j')<cr>
 map <silent> <C-k> :call WinMove('k')<cr>
@@ -106,7 +105,7 @@ map <silent> <C-l> :call WinMove('l')<cr>
 "override file systems by typing :w!!
 cmap w!! %!sudo tee > /dev/null %
 
-"map Silver Searcher
+"map Silver Searcher to \
 map \ :Ag!<space>
 
 "bind K to grep word under cursor
@@ -115,13 +114,13 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 "toggle NERDTree using ctrl+n
 map <leader>k :NERDTreeToggle<CR>
 
-"open a new empty buffer
+"open a new empty buffer using leader+T
 nmap <leader>T :enew<cr>
-"move to the next buffer
-nmap <leader>l :bnext<CR>
-"move to the previous buffer
-nmap <leader>h :bprevious<CR>
-"close the current buffer and move to the previous one
+"move to the next buffer usnig Tab
+nnoremap <Tab> :bnext<cr>
+"move to the previous buffer using Shift+Tab
+nnoremap <S-Tab> :bprevious<cr>
+"close the current buffer and move to the previous one using leader+bq
 nmap <leader>bq :bp <BAR> bd #<CR>
 
 " Functions
