@@ -1,6 +1,6 @@
 - zsh
 - vim
-- tmux
+- tmux +2.4
 - git
 - curl
 - ctags
