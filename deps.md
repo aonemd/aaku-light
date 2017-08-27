@@ -1,0 +1,9 @@
+- zsh
+- vim
+- tmux
+- git
+- curl
+- ctags
+- silversearcher-ag
+- xsel (or pbcopy for macOS)
+- build-essential (Ubuntu Linux)
