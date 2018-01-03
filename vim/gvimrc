@@ -1,21 +1,26 @@
-set guifont=Meslo\ LG\ S\ for\ Powerline\ 10
+set guifont=Hack\ Regular\ 10
 
-"window size
+" Window size
 set lines=50
 set columns=90
+set guiheadroom=0
 
-"menus
+" Menus
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-"show console dialogs
-set guioptions+=c
-
-"remove balloon
+" Remove balloon
 set noballooneval
 let g:netrw_nobeval = 1
 
-"silent bell
+" show console dialogs
+set guioptions+=c
+
+" Silent bell
 autocmd GUIEnter * set vb t_vb=
+
+highlight Normal       guibg=#1b1918
+highlight StatusLine   guifg=Grey15 guibg=Grey35
+highlight StatusLineNC guifg=Grey15 guibg=Grey23
