@@ -29,5 +29,8 @@ echo | vim +PluginInstall +qall
 echo "Source Zsh files"
 source ~/.zshrc
 
+echo "Installing atom packages"
+apm install --packages-file ./atom/package-list.txt
+
 echo "Installing Fonts..."
 git clone https://github.com/powerline/fonts.git ~/Downloads/fonts/ && ~/Downloads/fonts/install.sh
