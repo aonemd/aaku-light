@@ -1,9 +1,25 @@
-- zsh
-- vim
-- tmux +2.4
 - git
 - curl
-- ctags
-- silversearcher-ag
+- zsh
+- vim
+- tmux
+- silversearcher
 - xsel (or pbcopy for macOS)
-- build-essential (Ubuntu Linux)
+- ctags
+- pacaur
+- termite
+- xorg xorg-xinit
+- xf86-input-synaptics xf86-input-libinput
+- i3-gaps i3blocks i3lock-color
+- polkit && systemctl enable polkit
+- acpi
+- light
+- alsa-utils
+- dunst libnotify
+- feh
+- scrot
+- rofi
+- compton
+- irssi
+- cmus
+- freetype2 noto-fonts noto-fonts-cjk noto-fonts-emoji
