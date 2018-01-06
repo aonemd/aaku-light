@@ -1,19 +1,13 @@
 aaku
 ---
 
-アーク (The Ark): My *nix dotfiles
-
-### Contents
-
-- Vim
-- Tmux
-- Zsh
-- Git
+アーク (The Ark): My \*nix dotfiles
 
 ### Installation
 
 1. Download the repo or use Git `git clone https://github.com/yahmds/aaku`
-2. Run the installation script in the repo `cd aaku && ./install`
+2. Make a copy of `zsh/zsh/secrets.zsh.example` into `zsh/zsh/secrets.zsh` and add your own config and keys
+3. Run the installation script `cd aaku && ./install`
 
 ### Notes
 
