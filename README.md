@@ -11,8 +11,8 @@ aaku
 
 ### Notes
 
-- A note to self: [A Good Carpenter Doesn't Blame His Tools](https://yahmds.github.io/blog/the-dotfiles).
+- A note to self: [A Good Carpenter Doesn't Blame His Tools](https://aonemd.github.io/blog/the-dotfiles).
 
 ### License
 
-See [LICENSE](https://github.com/yahmds/aaku/blob/master/LICENSE).
+See [LICENSE](https://github.com/aonemd/aaku/blob/master/LICENSE).
