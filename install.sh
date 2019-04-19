@@ -51,6 +51,8 @@ vim -E -c PlugInstall -c qall
 echo "Source Zsh files"
 source $HOME/.zshrc
 
+mkdir  $HOME/Workspace
+
 [ -d $HOME/Workspace/fonts/ ] && exit
 echo "Installing Fonts..."
 git clone https://github.com/powerline/fonts.git $HOME/Workspace/fonts/
