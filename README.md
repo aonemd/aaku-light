@@ -1,7 +1,14 @@
-aaku
----
+<div align="center">
+  <h1>
+    aaku
+  </h1>
 
-アーク (The Ark): My \*nix dotfiles
+  ![screenshot_1](https://user-images.githubusercontent.com/16504838/56446196-82acf180-6301-11e9-962b-fb7b3ead4dfd.png)
+</div>
+
+アーク (The Ark): My \*nix dotfiles.
+
+See more screenshots [here](https://imgur.com/a/uXBAy).
 
 ### Installation
 
