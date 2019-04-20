@@ -53,10 +53,12 @@ source $HOME/.zshrc
 
 mkdir  $HOME/Workspace
 
-[ -d $HOME/Workspace/fonts/ ] && exit
-echo "Installing Fonts..."
-git clone https://github.com/powerline/fonts.git $HOME/Workspace/fonts/
-pushd $HOME/Workspace/fonts && ./install.sh && popd
+if [[ $DISPLAY ]]; then
+  [ -d $HOME/Workspace/fonts/ ] && exit
+  echo "Installing Fonts..."
+  git clone https://github.com/powerline/fonts.git $HOME/Workspace/fonts/
+  pushd $HOME/Workspace/fonts && ./install.sh && popd
 
-git clone https://github.com/sebastiencs/icons-in-terminal.git $HOME/Workspace/fonts/icons-in-terminal
-pushd $HOME/Workspace/fonts/icons-in-terminal && ./install.sh && popd
+  git clone https://github.com/sebastiencs/icons-in-terminal.git $HOME/Workspace/fonts/icons-in-terminal
+  pushd $HOME/Workspace/fonts/icons-in-terminal && ./install.sh && popd
+fi
