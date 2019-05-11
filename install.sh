@@ -20,6 +20,8 @@ ln -sfn ${BASEDIR}/git/gitconfig $HOME/.gitconfig
 ln -sfn ${BASEDIR}/rg/rgignore $HOME/.rgignore
 ln -sfn ${BASEDIR}/ctags/ctags $HOME/.ctags
 
+ln -sfn ${BASEDIR}/scheme/csirc $HOME/.csirc
+
 echo "Installing Vim plugins..."
 vim -E -c PlugInstall -c qall
 vim -c 'CocInstall -sync coc-go coc-tsserver coc-html coc-css coc-emmet coc-solargraph|q'
