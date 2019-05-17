@@ -71,7 +71,7 @@ set background=dark
 colorscheme kuroi
 
 "status line
-set statusline=%=%m\ %c\ %P\ %f\    "modifiedflag, charcount, filepath, filepercent
+set statusline=%=%m\ %c\ %P\ %f\    "modifiedflag, charcount, filepercent, filepath
 
 "remove current line highlight in unfocused window
 au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
