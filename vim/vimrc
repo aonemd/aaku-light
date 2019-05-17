@@ -7,7 +7,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-sandwich'
 Plug 'junegunn/vim-easy-align'
 Plug 'christoomey/vim-system-copy'
@@ -79,6 +79,7 @@ au WinLeave,FocusLost,CmdwinLeave * set nocul
 
 "The Leader
 let mapleader="\<Space>"
+
 
 nnoremap ! :!
 nnoremap <leader>w :w<cr>
