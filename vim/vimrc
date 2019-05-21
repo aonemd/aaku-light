@@ -50,8 +50,8 @@ set t_Co=256                        "enable 256 colors
 set background=dark
 colorscheme kuroi
 
-"status line
-set statusline=%=%m\ %c\ %P\ %f\    "modifiedflag, charcount, filepercent, filepath
+"status line: modifiedflag, charcount, filepercent, filepath
+set statusline=%=%m\ %c\ %P\ %f
 
 "remove current line highlight in unfocused window
 au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
