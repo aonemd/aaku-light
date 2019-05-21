@@ -21,7 +21,7 @@ set noswapfile                                     "disable swap files
 set autoread                                       "automatically read changes in the file
 set hidden                                         "hide buffers instead of closing them even if they contain unwritten changes
 set backspace=indent,eol,start                     "make backspace behave properly in insert mode
-set clipboard=unnamedplus                          "requires has('unnamedplus') to be 1
+set clipboard=unnamedplus                          "use system clipboard; requires has('unnamedplus') to be 1
 set wildmenu                                       "better menu with completion in command mode
 set wildmode=longest:full,full
 set completeopt=longest,menuone,preview            "better insert mode completions
