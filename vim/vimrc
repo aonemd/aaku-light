@@ -13,6 +13,7 @@ Plug 'fatih/vim-go'
 Plug 'mattn/emmet-vim'
 call plug#end()
 
+set lazyredraw                                     "lazily redraw screen while executing macros, and other commands
 set ttyfast                                        "more characters will be sent to the screen for redrawing
 set ttimeout                                       "time waited for key press(es) to complete...
 set ttimeoutlen=50                                 " ...makes for a faster key response
