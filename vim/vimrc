@@ -99,7 +99,7 @@ nnoremap \| :Ag <C-R><C-W><cr>:cw<cr>
 
 "Ctags
 set tags+=.git/tags
-nnoremap <leader>ct :!ctags --tag-relative --extra=+f -Rf .git/tags --exclude=.git,pkg --languages=-javascript,sql<cr><cr>
+nnoremap <leader>ct :!ctags -Rf .git/tags --tag-relative --extra=+f --exclude=.git,pkg --languages=-sql<cr><cr>
 
 "GitGutter
 nnoremap <c-N> :GitGutterNextHunk<CR>
