@@ -106,7 +106,7 @@ nnoremap <c-N> :GitGutterNextHunk<CR>
 nnoremap <c-P> :GitGutterPrevHunk<CR>
 nnoremap <c-U> :GitGutterUndoHunk<CR>
 
-nnoremap <leader>T :enew<cr>
+nnoremap <leader>B :enew<cr>
 nnoremap <Tab> :bnext<cr>
 nnoremap <S-Tab> :bprevious<cr>
 nnoremap <leader>bq :bp <bar> bd! #<cr>
