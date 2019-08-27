@@ -22,5 +22,5 @@ ln -sfn ${BASEDIR}/ag/agignore $HOME/.agignore
 echo "Installing Vim plugins..."
 vim -E -c PlugInstall -c qall
 
-echo "Source Zsh files"
+echo "Source Zsh files..."
 source $HOME/.zshrc
