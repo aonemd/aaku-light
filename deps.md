@@ -1,25 +1,7 @@
-- git
-- curl
-- zsh
-- vim
-- tmux
-- silversearcher
-- xsel (or pbcopy for macOS)
-- ctags
-- pacaur
-- termite
-- xorg xorg-xinit
-- xf86-input-synaptics xf86-input-libinput
-- i3-gaps i3blocks i3lock-color
-- polkit && systemctl enable polkit
-- acpi
-- light
-- alsa-utils
-- dunst libnotify
-- feh
-- scrot
-- rofi
-- compton
-- irssi
-- cmus
-- freetype2 noto-fonts noto-fonts-cjk noto-fonts-emoji
+git
+curl
+zsh
+vim
+tmux
+silversearcher-ag
+ctags
