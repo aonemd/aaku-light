@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-feh --bg-fill --randomize --no-fehbg $HOME/Pictures/wallpapers/*

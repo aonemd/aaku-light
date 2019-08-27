@@ -12,9 +12,11 @@ export PATH="$PATH:$AAKU/bin"
 export PATH="$PATH:$WK/bin"
 
 # chruby
-source /usr/share/chruby/chruby.sh
-source /usr/share/chruby/auto.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
 # Go
 export GOPATH="$WK/go"
 export PATH="$PATH:$GOPATH/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
