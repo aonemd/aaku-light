@@ -19,4 +19,8 @@ source /usr/local/share/chruby/auto.sh
 export GOPATH="$WK/go"
 export PATH="$PATH:$GOPATH/bin"
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
