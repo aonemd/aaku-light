@@ -101,10 +101,10 @@ nnoremap \| :Ag <C-R><C-W><cr>:cw<cr>
 set tags+=.git/tags
 nnoremap <leader>ct :!ctags -Rf .git/tags --tag-relative --extra=+f --exclude=.git,pkg --languages=-sql<cr><cr>
 
-"GitGutter
-nnoremap <c-N> :GitGutterNextHunk<CR>
-nnoremap <c-P> :GitGutterPrevHunk<CR>
-nnoremap <c-U> :GitGutterUndoHunk<CR>
+"Signify
+let g:signify_vcs_list = ['git', 'hg']
+nmap <c-n> <plug>(signify-next-hunk)
+nmap <c-p> <plug>(signify-prev-hunk)
 
 nnoremap <leader>B :enew<cr>
 nnoremap <Tab> :bnext<cr>
