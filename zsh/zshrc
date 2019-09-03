@@ -1,5 +1,9 @@
 # sourced in interactive shell
 
+include () {
+  [[ -f "$1" ]] && source "$1"
+}
+
 if [ -d $HOME/.zsh ]; then
   for file in $HOME/.zsh/**/*.zsh; do
     source $file
@@ -12,8 +16,8 @@ export PATH="$PATH:$AAKU/bin"
 export PATH="$PATH:$WK/bin"
 
 # chruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+include /usr/local/share/chruby/chruby.sh
+include /usr/local/share/chruby/auto.sh
 
 # Go
 export GOPATH="$WK/go"
@@ -25,4 +29,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag -l --nogroup  --nocolor --hidden -g ""'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+include ~/.fzf.zsh
