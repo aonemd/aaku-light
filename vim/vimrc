@@ -91,6 +91,9 @@ inoremap " ""<Left>
 vnoremap < <gv
 vnoremap > >gv
 
+"resize Vim panes to be equal on window resize
+autocmd! VimResized * :wincmd =
+
 "fzf
 let g:fzf_layout = { 'down': '~30%' }
 
