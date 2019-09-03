@@ -92,6 +92,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 "fzf
+let g:fzf_layout = { 'down': '~30%' }
+
 nnoremap <leader>p :FZF<cr>
 nnoremap <leader>o :Lines<cr>
 nnoremap <leader>t :Tags<cr>
