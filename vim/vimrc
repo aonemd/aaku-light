@@ -75,6 +75,14 @@ cnoremap w!! %!sudo tee > /dev/null %
 "remove search highlight
 nmap <leader>q :nohlsearch<CR>
 
+nnoremap <leader>B :enew<cr>
+nnoremap <Tab> :bnext<cr>
+nnoremap <S-Tab> :bprevious<cr>
+nnoremap <leader>bq :bp <bar> bd! #<cr>
+nnoremap <leader>ba :bufdo bd!<cr>
+"cycle between last two open buffers
+nnoremap <leader><leader> <c-^>
+
 "move lines around
 nnoremap <leader>k :m-2<cr>==
 nnoremap <leader>j :m+<cr>==
@@ -113,14 +121,6 @@ nnoremap <leader>ct :!ctags -Rf .git/tags --tag-relative --extra=+f --exclude=.g
 let g:signify_vcs_list = ['git', 'hg']
 nmap <c-n> <plug>(signify-next-hunk)
 nmap <c-p> <plug>(signify-prev-hunk)
-
-nnoremap <leader>B :enew<cr>
-nnoremap <Tab> :bnext<cr>
-nnoremap <S-Tab> :bprevious<cr>
-nnoremap <leader>bq :bp <bar> bd! #<cr>
-nnoremap <leader>ba :bufdo bd!<cr>
-"cycle between last two open buffers
-nnoremap <leader><leader> <c-^>
 
 "netrw
 let g:netrw_banner=0
