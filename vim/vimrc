@@ -74,6 +74,10 @@ nnoremap <silent> <leader>l :set rl!<cr>
 cnoremap w!! %!sudo tee > /dev/null %
 "remove search highlight
 nmap <leader>q :nohlsearch<CR>
+"execute and replace current line in $SHELL with the output
+nnoremap Q !!$SHELL<cr>
+"set cwd to the directory of the current file
+nnoremap <leader>cd :lcd %:p:h<cr>
 
 nnoremap <leader>B :enew<cr>
 nnoremap <Tab> :bnext<cr>
