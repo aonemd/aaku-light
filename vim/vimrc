@@ -52,10 +52,6 @@ colorscheme kuroi
 "status line: modifiedflag, charcount, filepercent, filepath
 set statusline=%=%m\ %c\ %P\ %f
 
-"remove current line highlight in unfocused window
-au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
-au WinLeave,FocusLost,CmdwinLeave * set nocul
-
 "The Leader
 let mapleader="\<Space>"
 
@@ -104,6 +100,10 @@ vnoremap > >gv
 
 "resize Vim panes to be equal on window resize
 autocmd! VimResized * :wincmd =
+
+"remove current line highlight in unfocused window
+au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
+au WinLeave,FocusLost,CmdwinLeave * set nocul
 
 "fzf
 let g:fzf_layout = { 'down': '~30%' }
