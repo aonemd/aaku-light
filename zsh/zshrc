@@ -29,4 +29,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag -l --nogroup  --nocolor --hidden -g ""'
-include ~/.fzf.zsh
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
