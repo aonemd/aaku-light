@@ -118,7 +118,7 @@ nnoremap \| :Ag <C-R><C-W><cr>:cw<cr>
 
 "Ctags
 set tags+=.git/tags
-nnoremap <leader>ct :!ctags -Rf .git/tags --tag-relative --extra=+f --exclude=.git,pkg --languages=-sql<cr><cr>
+nnoremap <leader>ct :!ctags -Rf .git/tags --tag-relative --extra=+f --exclude=.git --exclude=pkg --exclude=.bundle --exclude=node_modules --languages=-sql<cr><cr>
 
 "Signify
 let g:signify_vcs_list = ['git', 'hg']
