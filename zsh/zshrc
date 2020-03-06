@@ -11,7 +11,7 @@ if [ -d $HOME/.zsh ]; then
 fi
 
 export WK="$HOME/Workspace"
-export AAKU="$WK/aaku"
+export AAKU="$WK/aaku-server"
 export PATH="$PATH:$AAKU/bin"
 export PATH="$PATH:$WK/bin"
 
