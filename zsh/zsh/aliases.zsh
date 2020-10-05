@@ -8,7 +8,6 @@ alias grep='grep --colour --devices=skip'
 alias less='less -r'
 alias rm='rm -v'
 alias tree='tree -C'
-alias feh='feh -F'
 
 alias wk='cd $WK'
 alias v='vim'
@@ -46,19 +45,15 @@ alias gl='git log --topo-order --pretty=format:"${git_log_normal_format}"'
 alias glo='git log --topo-order --decorate --pretty=oneline --abbrev-commit'
 alias glg='git log --topo-order --graph --decorate --pretty=oneline --abbrev-commit'
 alias glga='git log --topo-order --graph --decorate --pretty=oneline --abbrev-commit --all'
-alias glc='git shortlog --summary --numbered --no-merges'
 alias glh='gl --follow -p -- '
+alias glc='git shortlog --summary --numbered --no-merges'
+alias glcc='git rev-list --count HEAD'
 
 # Ruby on Rails
-alias rs='bundle exec rails server'
-alias rc='bundle exec rails console'
-alias rg='bundle exec rails generate'
-alias rdc='bundle exec rails db:create'
-alias rdd='bundle exec rails db:drop'
-alias rdm='bundle exec rails db:migrate'
-alias rds='bundle exec rails db:seed'
 alias rbi='bundle install'
 alias rbe='bundle exec'
+alias rs='bundle exec rails server'
+alias rc='bundle exec rails console'
 alias rcop='bundle exec rubocop `git diff --name-only master..HEAD`'
 
 # Docker and Docker Compose
@@ -69,9 +64,5 @@ alias dps='docker ps'
 alias drac='docker rm -f `docker ps --no-trunc -aq`'
 alias dc='docker-compose'
 
-# Arch Linux
+# Linux
 alias journalctl='sudo journalctl'
-alias pacman='sudo pacman'
-alias paci='pacaur -S'
-alias pacu='pacaur --noedit -Syu'
-alias pacs='pacaur -Ss'
