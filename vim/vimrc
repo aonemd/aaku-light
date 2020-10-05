@@ -9,9 +9,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'aonemd/kuroi.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-rails'
-Plug 'fatih/vim-go'
-Plug 'mattn/emmet-vim'
 call plug#end()
 
 set lazyredraw                                     "lazily redraw screen while executing macros, and other commands
