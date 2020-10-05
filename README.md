@@ -1,18 +1,19 @@
 <div align="center">
   <h1>
-    aaku-server
+    AAKU (light version)
   </h1>
 
   ![screenshot_1](https://user-images.githubusercontent.com/16504838/56446196-82acf180-6301-11e9-962b-fb7b3ead4dfd.png)
 </div>
 
-アーク (The Ark): My \*nix dotfiles for the server.
+アーク (The Ark): A light version of [AAKU](https://github.com/aonemd/aaku), My \*nix dotfiles, for the server.
 
 ### Installation
 
-1. Download the repo or use Git `git clone https://github.com/aonemd/aaku-server`
-2. Make a copy of `zsh/zsh/secrets.zsh.example` into `zsh/zsh/secrets.zsh` and add your own config and keys
-3. Run the installation script `cd aaku-server && ./install`
+0. Make sure to install the [dependencies](https://github.com/aonemd/aaku-light/blob/master/dependencies.md)
+1. Download the repo or use Git `git clone https://github.com/aonemd/aaku-light`
+2. Make a copy of `zsh/zsh/secrets.zsh.example` into `zsh/zsh/secrets.zsh` and add your own env keys
+3. Run the installation script `cd aaku-light && ./install`
 
 ### Notes
 
@@ -20,4 +21,4 @@
 
 ### License
 
-See [LICENSE](https://github.com/aonemd/aaku-server/blob/master/LICENSE).
+See [LICENSE](https://github.com/aonemd/aaku-light/blob/master/LICENSE).
