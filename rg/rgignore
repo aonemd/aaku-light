@@ -3,7 +3,9 @@
 .svn/
 tmp/
 log/
+bin/
+dist/
 node_modules/
 bower_components/
-vendor/
 .bundle/
+public/
