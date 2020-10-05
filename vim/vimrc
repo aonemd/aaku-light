@@ -1,12 +1,14 @@
 call plug#begin('~/.vim/plugins')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-sandwich'
+Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'aonemd/kuroi.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-rails'
 Plug 'fatih/vim-go'
 Plug 'mattn/emmet-vim'
@@ -24,11 +26,13 @@ set clipboard=unnamedplus                          "use system clipboard; requir
 set wildmenu                                       "better menu with completion in command mode
 set wildmode=longest:full,full
 set completeopt=longest,menuone,preview            "better insert mode completions
+set shortmess+=c                                   "don't give completion messages like 'match 1 of 2' or 'The only match'
 set nowrap                                         "disable soft wrap for lines
 set scrolloff=2                                    "always show 2 lines above/below the cursor
 set showcmd                                        "display incomplete commands
 set laststatus=2                                   "always display the status bar
 set number relativenumber                          "display line numbers relatively
+set signcolumn=yes                                 "show signs
 set cursorline                                     "highlight current line
 set colorcolumn=81                                 "display text width column
 set splitbelow                                     "vertical splits will be at the bottom
@@ -52,11 +56,19 @@ colorscheme kuroi
 "status line: modifiedflag, charcount, filepercent, filepath
 set statusline=%=%m\ %c\ %P\ %f
 
+"remove current line highlight in unfocused window
+au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
+au WinLeave,FocusLost,CmdwinLeave * set nocul
+
+"resize Vim panes to be equal on window resize
+autocmd! VimResized * :wincmd =
+
 "The Leader
 let mapleader="\<Space>"
 
 nnoremap ! :!
 nnoremap <leader>w :w<cr>
+nnoremap <leader>m :make<cr>
 "replace the word under cursor
 nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
 "toggle showing hidden characters
@@ -93,17 +105,12 @@ inoremap ( ()<Left>
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap " ""<Left>
+inoremap ' ''<left>
+inoremap '<space> '
 
 "keep text selected after indentation
 vnoremap < <gv
 vnoremap > >gv
-
-"resize Vim panes to be equal on window resize
-autocmd! VimResized * :wincmd =
-
-"remove current line highlight in unfocused window
-au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
-au WinLeave,FocusLost,CmdwinLeave * set nocul
 
 "fzf
 let g:fzf_layout = { 'down': '~30%' }
@@ -116,6 +123,32 @@ nnoremap <leader>r :Buffers<cr>
 nnoremap \  :Ag<space>
 nnoremap \| :Ag <C-R><C-W><cr>:cw<cr>
 
+"Coc
+"longer updatetime (default=4000 ms) leads to noticeable delays and poor user experience
+set updatetime=300
+
+"trigger completion menu with ctrl-space (terminal c-space as sends Nul)
+inoremap <silent><expr> <Nul> coc#refresh()
+"confirm selection using Enter key
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>cr <Plug>(coc-rename)
+nmap <leader>cf :call CocAction('format')<cr>
+
+"use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+ if (index(['vim', 'help', 'c'], &filetype) >= 0)
+   execute 'h '.expand('<cword>')
+ else
+   call CocAction('doHover')
+ endif
+endfunction
+
 "Ctags
 set tags+=.git/tags
 nnoremap <leader>ct :!ctags -Rf .git/tags --tag-relative --extra=+f --exclude=.git --exclude=pkg --exclude=.bundle --exclude=node_modules --languages=-sql<cr><cr>
@@ -124,6 +157,10 @@ nnoremap <leader>ct :!ctags -Rf .git/tags --tag-relative --extra=+f --exclude=.g
 let g:signify_vcs_list = ['git', 'hg']
 nmap <c-n> <plug>(signify-next-hunk)
 nmap <c-p> <plug>(signify-prev-hunk)
+
+"EasyAlign
+nmap <leader>a <Plug>(EasyAlign)
+xmap <leader>a <Plug>(EasyAlign)
 
 "netrw
 let g:netrw_banner=0
@@ -161,6 +198,21 @@ function! StripTrailingWhitespace()
   endif
 endfunction
 autocmd! BufWritePre * call StripTrailingWhitespace()
+
+"smooth scroll
+nnoremap <silent> <c-u> :call SmoothScroll(1)<cr>
+nnoremap <silent> <c-d> :call SmoothScroll(0)<cr>
+function! SmoothScroll(up)
+  execute "normal " . (a:up ? "\<c-y>" : "\<c-e>")
+  redraw
+  for l:count in range(3, &scroll, 2)
+    sleep 7m
+    execute "normal " . (a:up ? "\<c-y>" : "\<c-e>")
+    redraw
+  endfor
+  " bring the cursor in the middle of screen
+  execute "normal M"
+endfunction
 
 "Goyo
 nnoremap <leader>g :Goyo<cr>
