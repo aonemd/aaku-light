@@ -21,6 +21,7 @@ ln -sfn ${BASEDIR}/rg/rgignore $HOME/.rgignore
 
 echo "Installing Vim plugins..."
 vim -E -c PlugInstall -c qall
+vim -c 'CocInstall -sync coc-go coc-tsserver coc-html coc-css coc-emmet coc-solargraph|q'
 
 echo "Source Zsh files..."
 source $HOME/.zshrc
