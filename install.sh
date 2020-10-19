@@ -15,8 +15,10 @@ ln -sfn ${BASEDIR}/zsh/zprofile $HOME/.zprofile
 ln -sfn ${BASEDIR}/zsh/zshenv $HOME/.zshenv
 ln -sfn ${BASEDIR}/zsh/zshrc $HOME/.zshrc
 
-ln -sfn ${BASEDIR}/tmux/tmux.conf $HOME/.tmux.conf
 ln -sfn ${BASEDIR}/git/gitconfig $HOME/.gitconfig
+ln -sfn ${BASEDIR}/git/gitattributes $HOME/.gitattributes
+
+ln -sfn ${BASEDIR}/tmux/tmux.conf $HOME/.tmux.conf
 ln -sfn ${BASEDIR}/rg/rgignore $HOME/.rgignore
 ln -sfn ${BASEDIR}/ctags/ctags $HOME/.ctags
 

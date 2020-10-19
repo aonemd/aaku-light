@@ -3,5 +3,6 @@
 	email = username@domain.com
 [core]
 	editor = vim
+	attributesfile = ./.gitattributes
 [color]
 	ui = true
