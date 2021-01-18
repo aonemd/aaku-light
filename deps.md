@@ -1,7 +1,7 @@
-git
-curl
-zsh
-vim
-tmux
-silversearcher-ag
-ctags
+- Curl
+- Git: version control system
+- VIM: text editor
+- ZSH: shell
+- tmux: terminal multiplexer
+- [ripgrip](https://github.com/BurntSushi/ripgrep): fast searcher
+- [universal-ctags](https://github.com/universal-ctags/ctags)

@@ -1,5 +1,0 @@
-- Git: version control system
-- VIM: text editor
-- ZSH: shell
-- tmux: terminal multiplexer
-- [ripgrip](https://github.com/BurntSushi/ripgrep): fast searcher
