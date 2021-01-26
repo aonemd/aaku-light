@@ -22,6 +22,7 @@ include /usr/local/share/chruby/auto.sh
 # Go
 export GOPATH="$WK/go"
 export PATH="$PATH:$GOPATH/bin"
+include $HOME/.gvm/scripts/gvm
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
