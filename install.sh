@@ -25,3 +25,11 @@ vim -c 'CocInstall -sync coc-go coc-tsserver coc-html coc-css coc-emmet coc-sola
 
 echo "Source Zsh files..."
 source $HOME/.zshrc
+
+if [ -n $DISPLAY ]; then
+  [ -d $HOME/Workspace/fonts/ ] && exit
+
+  echo "Installing Fonts..."
+  git clone https://github.com/powerline/fonts.git $HOME/Workspace/fonts/
+  pushd $HOME/Workspace/fonts && ./install.sh && popd
+fi
