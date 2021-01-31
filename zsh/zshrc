@@ -4,13 +4,14 @@ include () {
   [[ -f "$1" ]] && source "$1"
 }
 
+export WK="$HOME/Workspace"
+
 if [ -d $HOME/.zsh ]; then
   for file in $HOME/.zsh/**/*.zsh; do
     source $file
   done
 fi
 
-export WK="$HOME/Workspace"
 export AAKU="$WK/aaku-server"
 export PATH="$PATH:$AAKU/bin"
 export PATH="$PATH:$WK/bin"

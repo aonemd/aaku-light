@@ -4,3 +4,5 @@ vim/vim/.netrwhist
 
 # Ignore Tmux plugins
 tmux/tmux/
+
+zsh/zsh/secrets.zsh
