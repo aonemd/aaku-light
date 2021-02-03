@@ -21,7 +21,6 @@ include /usr/local/share/chruby/chruby.sh
 include /usr/local/share/chruby/auto.sh
 
 # Go
-include $HOME/.gvm/scripts/gvm
 export GOPATH="$WK/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOPATH/bin"
