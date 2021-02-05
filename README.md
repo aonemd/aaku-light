@@ -10,7 +10,7 @@
 
 ### Installation
 
-0. Make sure to install the [dependencies](https://github.com/aonemd/aaku-light/blob/master/dependencies.md)
+0. Make sure to install the [dependencies](https://github.com/aonemd/aaku-light/blob/master/deps.md)
 1. Download the repo or use Git `git clone https://github.com/aonemd/aaku-light`
 2. Make a copy of `zsh/zsh/secrets.zsh.example` into `zsh/zsh/secrets.zsh` and add your own env keys
 3. Run the installation script `cd aaku-light && ./install`
