@@ -16,20 +16,20 @@ export AAKU="$WK/aaku-server"
 export PATH="$PATH:$AAKU/bin"
 export PATH="$PATH:$WK/bin"
 
-# chruby
+# Ruby
 include /usr/local/share/chruby/chruby.sh
 include /usr/local/share/chruby/auto.sh
 
 # Go
 export GOPATH="$WK/go"
-export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$GOPATH/bin"
+export PATH=$PATH:$(go env GOROOT)/bin:$(go env GOPATH)/bin
 
-# NVM
+# Javascript
+export PATH="$PATH:$HOME/.yarn/bin"
 export NVM_DIR="$HOME/.nvm"
 include $NVM_DIR/nvm.sh
 
-# fzf
+# FZF
 export FZF_DEFAULT_COMMAND='rg --files --hidden --color never'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 include ~/.fzf.zsh
