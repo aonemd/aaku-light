@@ -18,6 +18,7 @@ ln -sfn ${BASEDIR}/zsh/zshrc $HOME/.zshrc
 ln -sfn ${BASEDIR}/tmux/tmux.conf $HOME/.tmux.conf
 ln -sfn ${BASEDIR}/git/gitconfig $HOME/.gitconfig
 ln -sfn ${BASEDIR}/rg/rgignore $HOME/.rgignore
+ln -sfn ${BASEDIR}/ctags/ctags $HOME/.ctags
 
 echo "Installing Vim plugins..."
 vim -E -c PlugInstall -c qall
