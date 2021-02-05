@@ -20,6 +20,7 @@ ln -sfn ${BASEDIR}/git/gitconfig $HOME/.gitconfig
 ln -sfn ${BASEDIR}/rg/rgignore $HOME/.rgignore
 ln -sfn ${BASEDIR}/ctags/ctags $HOME/.ctags
 
+ln -sfn ${BASEDIR}/ruby/irbrc $HOME/.irbrc
 ln -sfn ${BASEDIR}/scheme/csirc $HOME/.csirc
 
 echo "Installing Vim plugins..."
