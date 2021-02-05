@@ -34,5 +34,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --color never'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 include ~/.fzf.zsh
 
-# k8s
-source <(kubectl completion zsh)
+# K8S
+source <(kubectl completion zsh 2>/dev/null)
