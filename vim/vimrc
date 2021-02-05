@@ -3,15 +3,18 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 Plug 'machakann/vim-sandwich'
 Plug 'junegunn/vim-easy-align'
 Plug 'obcat/vim-hitspop'
 Plug 'junegunn/goyo.vim'
 Plug 'aonemd/kuroi.vim'
+Plug 'aonemd/atlas.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'calebsmith/vim-lambdify'
+Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 set lazyredraw                                     "lazily redraw screen while executing macros, and other commands
@@ -19,10 +22,11 @@ set ttyfast                                        "more characters will be sent
 set ttimeout                                       "time waited for key press(es) to complete...
 set ttimeoutlen=50                                 " ...makes for a faster key response
 set noswapfile                                     "disable swap files
+set viminfo+=n/tmp/.viminfo                        "path to store .viminfo files
 set autoread                                       "automatically read changes in the file
 set hidden                                         "hide buffers instead of closing them even if they contain unwritten changes
 set backspace=indent,eol,start                     "make backspace behave properly in insert mode
-set clipboard=unnamedplus                          "use system clipboard; requires has('unnamedplus') to be 1
+set clipboard=unnamedplus                          "requires has('unnamedplus') to be 1
 set wildmenu                                       "better menu with completion in command mode
 set wildmode=longest:full,full
 set completeopt=longest,menuone,preview            "better insert mode completions
@@ -31,44 +35,64 @@ set nowrap                                         "disable soft wrap for lines
 set scrolloff=2                                    "always show 2 lines above/below the cursor
 set showcmd                                        "display incomplete commands
 set laststatus=2                                   "always display the status bar
-set number relativenumber                          "display line numbers relatively
+set number relativenumber                          "display line numbers
 set signcolumn=yes                                 "show signs
 set cursorline                                     "highlight current line
 set colorcolumn=81                                 "display text width column
 set splitbelow                                     "vertical splits will be at the bottom
 set splitright                                     "horizontal splits will be to the right
+set termwinsize=15x                                "terminal will be 15 units long
+
 set autoindent                                     "always set autoindenting on
 set formatoptions-=cro                             "disable auto comments on new lines
+set formatoptions+=j                               "remove a comment leader when joining lines
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab "use two spaces for indentation
+
 set incsearch                                      "incremental search highlight
 set ignorecase                                     "searches are case insensitive...
 set smartcase                                      " ..unless they contain at least one capital letter
 set hlsearch                                       "highlight search patterns
 
+set foldmethod=indent
+set nofoldenable
+
 augroup SyntaxAutocmds
   autocmd! FileType c          setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd! FileType java       setlocal ts=4 sts=4 sw=4 expandtab
   autocmd! FileType make       setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd! FileType ruby       setlocal makeprg=ruby\ %
   autocmd! FileType go         setlocal makeprg=go\ run\ %
   autocmd! FileType typescript setlocal makeprg=ts-node\ %
+  autocmd! FileType scheme     setlocal makeprg=chicken-csi\ -s\ %
+  autocmd! FileType *.h        setlocal filetype=c
+  autocmd! FileType css        setlocal iskeyword+=-
+  autocmd! FileType scss       setlocal iskeyword+=-
+  autocmd! FileType vue        syntax sync fromstart
 augroup END
 
-set t_Co=256                        "enable 256 colors
+let g:ruby_path = system('echo $(which ruby)')
+
 set background=dark
+set termguicolors                                  "or enable 256 colors: set t_Co=256
 colorscheme kuroi
 
 "status line: modifiedflag, charcount, filepercent, filepath
 set statusline=%=%m\ %c\ %P\ %f
 
 "remove current line highlight in unfocused window
-au VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
-au WinLeave,FocusLost,CmdwinLeave * set nocul
+autocmd! VimEnter,WinEnter,BufWinEnter,FocusGained,CmdwinEnter * set cul
+autocmd! WinLeave,FocusLost,CmdwinLeave * set nocul
 
-"resize Vim panes to be equal on window resize
+"resize Vim on Tmux split
 autocmd! VimResized * :wincmd =
 
 "The Leader
 let mapleader="\<Space>"
+
+"execute silent commands
+command! -nargs=1 SilentCmd execute 'silent !' . <q-args> | execute 'redraw!'
+nnoremap <leader>e :SilentCmd<space>
+nnoremap <leader>d :SilentCmd tsk<space>
 
 nnoremap ! :!
 nnoremap <leader>w :w<cr>
@@ -80,7 +104,7 @@ nnoremap <silent> <leader>s :set nolist!<cr>
 "toggle spell checking
 nnoremap <leader>ss :setlocal spell!<cr>
 "toggle RTL mode
-nnoremap <silent> <leader>l :set rl!<cr>
+nnoremap <silent> <leader>l :set arabic!<cr>
 "override system files by typing :w!!
 cnoremap w!! %!sudo tee > /dev/null %
 "remove search highlight
@@ -89,14 +113,6 @@ nmap <leader>q :nohlsearch<CR>
 nnoremap Q !!$SHELL<cr>
 "set cwd to the directory of the current file
 nnoremap <leader>cd :lcd %:p:h<cr>
-
-nnoremap <leader>B :enew<cr>
-nnoremap <Tab> :bnext<cr>
-nnoremap <S-Tab> :bprevious<cr>
-nnoremap <leader>bq :bp <bar> bd! #<cr>
-nnoremap <leader>ba :bufdo bd!<cr>
-"cycle between last two open buffers
-nnoremap <leader><leader> <c-^>
 
 "move lines around
 nnoremap <leader>k :m-2<cr>==
@@ -122,6 +138,14 @@ inoremap '<space> '
 "keep text selected after indentation
 vnoremap < <gv
 vnoremap > >gv
+
+nnoremap <leader>B :enew<cr>
+nnoremap <Tab> :bnext<cr>
+nnoremap <S-Tab> :bprevious<cr>
+nnoremap <leader>bq :bp <bar> bd! #<cr>
+nnoremap <leader>ba :bufdo bd!<cr>
+"cycle between last two open buffers
+nnoremap <leader><leader> <c-^>
 
 "fzf
 let g:fzf_layout       = { 'down': '~30%' }
@@ -178,7 +202,7 @@ xmap <leader>a <Plug>(EasyAlign)
 
 "netrw
 let g:netrw_banner=0
-let g:netrw_winsize=20
+let g:netrw_winsize=15
 let g:netrw_liststyle=3
 let g:netrw_localrmdir='rm -r'
 nnoremap <leader>n :Lexplore<CR>
@@ -236,3 +260,23 @@ if !exists('*s:goyo_leave')
   endfunction
 endif
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+"highlight repeated lines. Clear with `:e`
+function! HighlightRepeats() range
+  let lineCounts = {}
+  let lineNum = a:firstline
+  while lineNum <= a:lastline
+    let lineText = getline(lineNum)
+    if lineText != ""
+      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
+    endif
+    let lineNum = lineNum + 1
+  endwhile
+  exe 'syn clear Repeat'
+  for lineText in keys(lineCounts)
+    if lineCounts[lineText] >= 2
+      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
+    endif
+  endfor
+endfunction
+command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
