@@ -46,4 +46,4 @@ function _prompt_hg_status {
   fi
 }
 
-PROMPT='$(prompt_current_dir)$(prompt_git_branch)$(prompt_hg_branch)$(remote_hostname) $(prompt_symbol) %{$reset_color%}'
+PROMPT='$(prompt_current_dir)$(prompt_git_branch)$(prompt_hg_branch)$(remote_hostname) $(prompt_symbol)%(?..$PROMPT_NORMAL_SYMBOL) %{$reset_color%}'
