@@ -39,11 +39,18 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
-bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+# bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+# bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 
 # Vim Mode
 bindkey -v
 export KEYTIMEOUT=1
 bindkey '^?' backward-delete-char # backspace working afte command mode
 bindkey '^r' history-incremental-search-backward # ctrl-r starts searching history backward
+
+# edit current command in a text editor
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd '^X' edit-command-line
