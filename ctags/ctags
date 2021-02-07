@@ -1,5 +1,11 @@
 --tag-relative=yes
 --extras=+f
---exclude={.git,node_modules,public,vendor,dist,build,pkg}
+--exclude=.git
+--exclude=node_modules
+--exclude=public
+--exclude=vendor
+--exclude=dist
+--exclude=build
+--exclude=pkg
 --languages=-sql
 --append
