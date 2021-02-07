@@ -21,7 +21,9 @@ ln -sfn ${BASEDIR}/git/gitattributes $HOME/.gitattributes
 
 ln -sfn ${BASEDIR}/tmux/tmux.conf $HOME/.tmux.conf
 ln -sfn ${BASEDIR}/rg/rgignore $HOME/.rgignore
-ln -sfn ${BASEDIR}/ctags/ctags $HOME/.ctags
+
+[ -d $HOME/.ctags.d/ ] || mkdir -p $HOME/.ctags.d
+ln -sfn ${BASEDIR}/ctags/ctags $HOME/.ctags.d/default.ctags
 
 ln -sfn ${BASEDIR}/ruby/irbrc $HOME/.irbrc
 ln -sfn ${BASEDIR}/scheme/csirc $HOME/.csirc
