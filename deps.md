@@ -5,3 +5,4 @@
 - tmux: terminal multiplexer
 - [ripgrip](https://github.com/BurntSushi/ripgrep): fast searcher
 - [universal-ctags](https://github.com/universal-ctags/ctags)
+- xsel (or pbcopy for macOS)
