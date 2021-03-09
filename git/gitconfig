@@ -6,3 +6,9 @@
 	attributesfile = ./.gitattributes
 [color]
 	ui = true
+[rebase]
+	autosquash = true
+[pull]
+	rebase = merges
+[init]
+	defaultBranch = master
