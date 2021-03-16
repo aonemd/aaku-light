@@ -10,7 +10,7 @@ Plug 'natebosch/vim-lsc'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'aonemd/dazzle.vim'
-Plug 'calebsmith/vim-lambdify'
+Plug 'aonemd/vim-lambdify'
 Plug 'aonemd/kuroi.vim'
 Plug 'aonemd/atlas.vim'
 call plug#end()
